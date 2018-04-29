@@ -1,0 +1,32 @@
+.site-logo-area {
+	max-width: 14em;
+	margin: 1em auto 1em auto;
+	cursor: pointer;
+}
+
+.logo-text {
+	font-size: 3em;
+	font-family: 'Fredoka One', cursive;
+}
+.logo-text-bold {
+	font-weight: bold;
+}
+.logo-text-secondary {
+	color: #999;
+}
+.logo-text-blue {
+	color: #2352AD;
+}
+
+.logo-link:hover {
+	text-decoration: none;
+	color: #007bff;
+}
+
+#topStoriesCarousel {
+	background-color: #555;
+}
+.carousel-image {
+	display: block;
+    margin: 0 auto;
+}
