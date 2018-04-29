@@ -6,17 +6,20 @@
 // 	})
 // };
 
-var getStories = function(onStoriesReturned, path) {
+var getInfoFromServer = function(onInfoReturned, path) {
 	var url = ENVIRONMENT["HOST"] + "/" + path;
-	$.get(url, function(topStories) {
-		onStoriesReturned(topStories);
+	$.get(url, function(info) {
+		onInfoReturned(info);
 	});
 }
 var getTopStories = function(onTopStoriesReturned) {
-	getStories(onTopStoriesReturned, "whyquit/top-stories");
+	getInfoFromServer(onTopStoriesReturned, "whyquit/top-stories");
 };
 var getSecondaryStories = function(onSecondaryStoriesReturned) {
-	getStories(onSecondaryStoriesReturned, "whyquit/secondary-stories");
+	getInfoFromServer(onSecondaryStoriesReturned, "whyquit/secondary-stories");
+};
+var getTooYoungCardsInfo = function(onTooYoungInfoReturned) {
+	getInfoFromServer(onTooYoungInfoReturned, "whyquit/too-young");
 };
 
 var getMaxCarouselHeight = function() {
@@ -107,7 +110,62 @@ var addSecondaryStoriesToPage = function(secondaryStories) {
 	});
 };
 
+var makeTooYoungCardRow = function() {
+	var row = document.createElement("row");
+	row.classList.add("row", "image-cards-row", "w-75");
+	return row;
+};
+
+var populateTooYoungCards = function(tooYoungCardsInfo) {
+	const CARDS_PER_ROW = 3;
+	var tooYoungCardsContainer = document.getElementById("diedTooYoungContainer");
+	var currentRow = makeTooYoungCardRow();
+
+	tooYoungCardsInfo.forEach(function(cardInfo, index) {
+		if (index % CARDS_PER_ROW == 0) {
+			tooYoungCardsContainer.appendChild(currentRow);
+			currentRow = makeTooYoungCardRow();
+		}
+
+		var cardInfoArea = document.createElement("div");
+		cardInfoArea.classList.add("col-sm-4");
+
+		var cardInfoLink = document.createElement("a");
+		cardInfoLink.classList.add("too-young-story-link");
+		cardInfoLink.setAttribute("href", cardInfo["whyquit_link"]);
+		cardInfoLink.setAttribute("target", "_blank");
+		
+		var cardTitle = document.createElement("div");
+		cardTitle.classList.add("image-card-title");
+
+		var cardTitleText = document.createElement("p");
+		cardTitleText.classList.add("image-card-title-text");
+		cardTitleText.innerHTML = cardInfo["victim_name"];
+		cardTitle.appendChild(cardTitleText);
+
+		var cardTitleSubtext = document.createElement("p");
+		var subtextSmall = document.createElement("small");
+		subtextSmall.innerHTML = cardInfo["victim_age"] + " years old";
+		cardTitleSubtext.appendChild(subtextSmall);
+		cardTitle.appendChild(cardTitleSubtext);
+
+		var cardImage = new Image();
+		cardImage.onload = function() {
+			cardInfoLink.appendChild(cardImage);
+			cardInfoLink.appendChild(cardTitle);
+		};
+		cardImage.src = ENVIRONMENT["HOST"] + "/whyquit/images/too-young/" + cardInfo["imageFilename"];
+		cardImage.classList.add("card-img-top");
+
+		cardInfoArea.appendChild(cardInfoLink);
+		currentRow.appendChild(cardInfoArea);
+		
+		tooYoungCardsContainer.appendChild(currentRow);
+	});
+};
+
 document.addEventListener("DOMContentLoaded", function(event) {
 	getTopStories(addTopStoriesToPage);
 	getSecondaryStories(addSecondaryStoriesToPage);
+	getTooYoungCardsInfo(populateTooYoungCards);
 });
