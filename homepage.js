@@ -81,7 +81,30 @@ var addTopStoriesToPage = function(topStories) {
 };
 
 var addSecondaryStoriesToPage = function(secondaryStories) {
-	console.log("secondary " + JSON.stringify(secondaryStories));
+	var secondaryStoriesList = document.getElementById("secondaryStoriesList");
+	
+	secondaryStories.forEach(function(secondaryStory) {
+		var listItemLink = document.createElement("a");
+		listItemLink.setAttribute("href", secondaryStory["whyquit_link"]);
+		listItemLink.setAttribute("target", "_blank");
+		listItemLink.classList.add("list-group-item", "list-group-item-action", "flex-column", "align-items-start");
+
+		var storyTitleContainer = document.createElement("div");
+		storyTitleContainer.classList.add("d-flex", "w-100", "justify-content-between");
+		
+		var storyTitle = document.createElement("h5");
+		storyTitle.classList.add("mb-1");
+		storyTitle.innerHTML = secondaryStory["title"];
+		storyTitleContainer.appendChild(storyTitle);
+		listItemLink.appendChild(storyTitleContainer);
+
+		var storyDescription = document.createElement("p");
+		storyDescription.classList.add("mb-1", "text-muted");
+		storyDescription.innerHTML = secondaryStory["description"];
+		listItemLink.appendChild(storyDescription);
+
+		secondaryStoriesList.appendChild(listItemLink);
+	});
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {

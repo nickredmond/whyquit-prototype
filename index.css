@@ -1,6 +1,6 @@
-body {
+/* body {
 	background-color: #EEE;
-}
+} */
 
 .site-logo-area {
 	max-width: 14em;
@@ -28,7 +28,7 @@ body {
 }
 
 #topStoriesCarousel {
-	/* background-color: #555; */
+	background-color: #eee;
 }
 .carousel-image {
 	display: block;
