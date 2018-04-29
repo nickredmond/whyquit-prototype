@@ -18,9 +18,11 @@ var hexToBase64 = function(str) {
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	// var whyQuitDOM = getWhyQuitDOM();
-	// var earlyDeathPicutres = document.getElementsByTagName("body")[0].getElementsByTagName("div")[0].getElementsByTagName("div")[0];
-	//  console.log("yep " + earlyDeathPicutre);
+	var windowHeight = window.innerHeight;
+	var logoHeight = $("#mainSiteLogo").height();
+	var BUFFER_HEIGHT = 75;
+	var maxCarouselHeight = windowHeight - logoHeight - BUFFER_HEIGHT;
+
 	getTopStories(function(topStories) {
 		topStories.forEach(function(topStory, index) {	
 			console.log("the story: " + JSON.stringify(topStory));
@@ -34,17 +36,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 			var imageAnchor = document.createElement("a");
 			imageAnchor.setAttribute("href", topStory["whyquit_link"]);
+			imageAnchor.setAttribute("target", "_blank");
 
-			var image = document.createElement("img");
-			image.classList.add("d-block", "w-75", "carousel-image");
-			image.setAttribute("src", ENVIRONMENT["HOST"] + "/whyquit/images/" + topStory["imageFilename"]);
-			imageAnchor.appendChild(image);
+			var slideImg = new Image(); 
 
-			// var imageUrl = ENVIRONMENT["HOST"] + "/whyquit/images/" + topStory["imageFilename"];
-			// $.get(imageUrl, function(imageBinaryData) {
-			// 	//var base64EncodedData = btoa(imageBinaryData);
-			// 	image.setAttribute("src", "data:image/jpeg;base64," + hexToBase64(imageBinaryData));
-			// });
+			slideImg.onload = function(){
+				slideImg.style.maxHeight = maxCarouselHeight + "px";
+				var scalingFactor = maxCarouselHeight / slideImg.height;
+				slideImg.style.maxWidth = (slideImg.width * scalingFactor) + "px";
+				imageAnchor.appendChild(slideImg);
+			};
+
+			slideImg.src = ENVIRONMENT["HOST"] + "/whyquit/images/" + topStory["imageFilename"];
+			slideImg.classList.add("d-block", "w-75", "carousel-image");
 
 			var caption = document.createElement("div");
 			caption.classList.add("w-75", "top-story-caption-block");
