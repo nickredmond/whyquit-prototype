@@ -25,15 +25,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
 		topStories.forEach(function(topStory, index) {	
 			console.log("the story: " + JSON.stringify(topStory));
 			var slide = document.createElement("div");
-			var slideClasslist = ["carousel-item"];
 			if (index == 0) {
-				slideClasslist.push("active");
+				slide.classList.add("carousel-item", "active");
 			}
-			slide.classList.add(slideClasslist);
+			else {
+				slide.classList.add("carousel-item");
+			}
+
+			var imageAnchor = document.createElement("a");
+			imageAnchor.setAttribute("href", topStory["whyquit_link"]);
 
 			var image = document.createElement("img");
-			image.classList.add("d-block", "w-100", "carousel-image");
+			image.classList.add("d-block", "w-75", "carousel-image");
 			image.setAttribute("src", ENVIRONMENT["HOST"] + "/whyquit/images/" + topStory["imageFilename"]);
+			imageAnchor.appendChild(image);
 
 			// var imageUrl = ENVIRONMENT["HOST"] + "/whyquit/images/" + topStory["imageFilename"];
 			// $.get(imageUrl, function(imageBinaryData) {
@@ -42,12 +47,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			// });
 
 			var caption = document.createElement("div");
-			caption.classList.add(["carousel-caption", "d-md-block"]);
+			caption.classList.add("w-75", "top-story-caption-block");
 			var captionText = document.createElement("h5");
 			captionText.innerHTML = topStory["title"];
 			caption.appendChild(captionText);
 
-			slide.appendChild(image);
+			slide.appendChild(imageAnchor);
 			slide.appendChild(caption);
 
 			var slidesContainer = document.getElementById("slidesContainer");
