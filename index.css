@@ -3,10 +3,11 @@
 } */
 
 .site-logo-area {
-	max-width: 14em;
+	/* max-width: 14em; */
 	cursor: pointer;
-	font-family: 'Fredoka One', cursive;
-	margin: 1em auto 1em auto;
+	font-family: 'Montserrat', sans-serif;
+	/* font-family: 'Fredoka One', cursive; */
+	margin: 0 auto 1em auto;
 }
 
 .logo-text {
@@ -19,7 +20,8 @@
 	color: #999;
 }
 .logo-text-blue {
-	color: #2352AD;
+	/* color: #2352AD; */
+	color: #999;
 }
 
 .logo-link:hover {
@@ -68,10 +70,12 @@
 	background-color: #2352AD;
 }
 #diedTooYoungHeader {
-	font-family: "Gamja Flower", cursive;
-    font-size: 2.75em;
+	font-family: 'Raleway', cursive;
+	/* font-family: "Gamja Flower", cursive; */
+    font-size: 2em;
     color: white;
-	max-width: 7.5em;
+	max-width: 10em;
+	padding-top: 0.5em;
 	margin: 0.5em auto 0 auto;
 }
 .image-cards-row {
@@ -93,4 +97,26 @@
 }
 .image-card-title-text {
 	font-size: 1.25em;
+}
+
+#mainNavbar {
+	margin-top: 0.5em;
+}
+
+.circle-btn {
+	display: block;
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    margin: 0.75em;
+}
+.circle-btn:hover {
+	background-color: #ccc;
+}
+#whyquit-icon {
+	width: 2.3em;
+    height: 2.4em;
+    padding-top: 0.5em;
+    padding-left: 0.4em;
 }

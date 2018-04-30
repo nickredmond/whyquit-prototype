@@ -165,6 +165,8 @@ var populateTooYoungCards = function(tooYoungCardsInfo) {
 };
 
 document.addEventListener("DOMContentLoaded", function(event) {
+	document.getElementById("whyquit-icon").src = ENVIRONMENT["HOST"] + "/whyquit/images/icons/whyquit-icon.ico";
+
 	getTopStories(addTopStoriesToPage);
 	getSecondaryStories(addSecondaryStoriesToPage);
 	getTooYoungCardsInfo(populateTooYoungCards);
