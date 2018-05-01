@@ -73,8 +73,8 @@
 	font-family: 'Raleway', cursive;
 	/* font-family: "Gamja Flower", cursive; */
     font-size: 2em;
-    color: white;
-	max-width: 10em;
+    color: #eee;
+	max-width: 11em;
 	padding-top: 0.5em;
 	margin: 0.5em auto 0 auto;
 }
@@ -102,6 +102,9 @@
 #mainNavbar {
 	margin-top: 0.5em;
 }
+#mainSiteLogo {
+	text-align: center;
+}
 
 .circle-btn {
 	display: block;
@@ -119,4 +122,9 @@
     height: 2.4em;
     padding-top: 0.5em;
     padding-left: 0.4em;
+}
+
+.top-nav-wrapper {
+	margin: 0 auto;
+	max-width: 5em;
 }
