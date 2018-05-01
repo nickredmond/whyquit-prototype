@@ -68,6 +68,7 @@
 
 #diedTooYoungContainer {
 	background-color: #2352AD;
+	padding-bottom: 0.5em;
 }
 #diedTooYoungHeader {
 	font-family: 'Raleway', cursive;
@@ -80,6 +81,7 @@
 }
 .image-cards-row {
 	margin: 0 auto 1em auto;
+	max-width: 600px;
 }
 .image-cards-row > div {
 	padding-top: 0.5em;
@@ -127,4 +129,66 @@
 .top-nav-wrapper {
 	margin: 0 auto;
 	max-width: 5em;
+}
+
+.category-card {
+	color: #484848;
+}
+.category-card-header {
+	font-weight: bold;
+    font-size: 1.25em;
+}
+.category-card > hr {
+	margin: 0 0 0.5em 0;
+}
+.left-category-card {
+	margin-left: auto;
+}
+.right-category-card {
+	margin-right: auto;
+}
+
+.category-card-list {
+	padding: 0;
+	margin-bottom: 0;
+}
+.category-card-list > li {
+	list-style: none;
+}
+
+.category-card-link {
+	color: black;
+}
+
+#categoriesContainer {
+	padding-top: 0.5em;
+}
+
+#socialLogosArea {
+	font-size: 2.5em;
+	min-width: 250px;
+}
+.social-link {
+	padding: 0.25em;
+	cursor: pointer;
+}
+.social-link:visited {
+	color: black;
+}
+.social-link:hover {
+	color: #007bff;
+}
+
+#footerContainer {
+	margin-top: 1em;
+}
+.footer-row {
+	margin: 0 auto;
+	text-align: center;
+}
+#footerLinks {
+	padding: 0.25em 0 1em 0;
+}
+#footerLinks p {
+	margin-bottom: 0;
 }

@@ -129,6 +129,8 @@ var populateTooYoungCards = function(tooYoungCardsInfo) {
 
 		var cardInfoArea = document.createElement("div");
 		cardInfoArea.classList.add("col-sm-4");
+		cardInfoArea.style.maxWidth = "175px";
+		cardInfoArea.style.margin = "0 auto";
 
 		var cardInfoLink = document.createElement("a");
 		cardInfoLink.classList.add("too-young-story-link");
@@ -154,6 +156,7 @@ var populateTooYoungCards = function(tooYoungCardsInfo) {
 			cardInfoLink.appendChild(cardImage);
 			cardInfoLink.appendChild(cardTitle);
 		};
+		cardImage.style.maxWidth = "175px";
 		cardImage.src = ENVIRONMENT["HOST"] + "/whyquit/images/too-young/" + cardInfo["imageFilename"];
 		cardImage.classList.add("card-img-top");
 
