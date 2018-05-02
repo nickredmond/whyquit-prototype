@@ -167,6 +167,13 @@ var populateTooYoungCards = function(tooYoungCardsInfo) {
 	});
 };
 
+var isNavigationMenuOpen = false;
+var toggleNavigationMenu = function() {
+	var menuWidth = isNavigationMenuOpen ? "0" : "250px";
+	isNavigationMenuOpen = !isNavigationMenuOpen;
+	document.getElementById("sideNavigationBar").style.width = menuWidth;
+};
+
 document.addEventListener("DOMContentLoaded", function(event) {
 	document.getElementById("whyquit-icon").src = ENVIRONMENT["HOST"] + "/whyquit/images/icons/whyquit-icon.ico";
 

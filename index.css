@@ -2,12 +2,21 @@
 	background-color: #EEE;
 } */
 
+#mainSiteLogo {
+	text-align: center;
+	margin: 0 auto;
+	width: 13em;
+	padding: 0;
+}
 .site-logo-area {
 	/* max-width: 14em; */
 	cursor: pointer;
 	font-family: 'Montserrat', sans-serif;
 	/* font-family: 'Fredoka One', cursive; */
 	margin: 0 auto 1em auto;
+}
+#whyquitLogoArea {
+	margin: 0 auto;
 }
 
 .logo-text {
@@ -71,11 +80,11 @@
 	padding-bottom: 0.5em;
 }
 #diedTooYoungHeader {
-	font-family: 'Raleway', cursive;
+	font-family: 'Source Sans Pro', sans-serif;
 	/* font-family: "Gamja Flower", cursive; */
     font-size: 2em;
     color: #eee;
-	max-width: 11em;
+	max-width: 10em;
 	padding-top: 0.5em;
 	margin: 0.5em auto 0 auto;
 }
@@ -102,11 +111,19 @@
 }
 
 #mainNavbar {
-	margin-top: 0.5em;
+	position: fixed;
+	margin: 0.5em 0 0 0.5em;
+	z-index: 21;
 }
-#mainSiteLogo {
-	text-align: center;
+#mainNavbar > button {
+	background-color: white;
 }
+#mainNavbarSpacingDiv {
+	width: 88px;
+    height: 56px;
+    margin: 0.5em 0 0 0.5em;
+}
+
 
 .circle-btn {
 	display: block;
@@ -191,4 +208,16 @@
 }
 #footerLinks p {
 	margin-bottom: 0;
+}
+
+#sideNavigationBar {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 20;
+	top: 0;
+	left: 0;
+	background-color: #007bff;
+	overflow-x: hidden;
+	transition: 0.5s;
 }
