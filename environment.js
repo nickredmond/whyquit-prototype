@@ -5,5 +5,5 @@
 
 // -- PRODUCTION
 var ENVIRONMENT = {
-    "HOST": "http://whyquit-prototype-server.herokuapp.com"
+    "HOST": "https://whyquit-prototype-server.herokuapp.com"
 };
