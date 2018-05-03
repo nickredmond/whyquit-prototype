@@ -188,12 +188,13 @@
 .social-link {
 	padding: 0.25em;
 	cursor: pointer;
-}
-.social-link:visited {
 	color: black;
 }
 .social-link:hover {
-	color: #007bff;
+	color: #007bff !important;
+}
+.social-link:visited {
+	color: black;
 }
 
 #footerContainer {
@@ -220,4 +221,18 @@
 	background-color: #007bff;
 	overflow-x: hidden;
 	transition: 0.5s;
+}
+#sideNavigationContent {
+	margin-top: 5em;
+    margin-left: 2em;
+    color: white;
+    width: 250px;
+}
+
+@media screen and (min-width: 420px) {
+	#whyquitLogoArea {
+		margin: 0 auto;
+		position: fixed;
+		right: 1em;
+	}
 }
